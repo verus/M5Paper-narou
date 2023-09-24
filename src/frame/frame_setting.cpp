@@ -84,7 +84,7 @@ void key_synctime_cb(epdgui_args_vector_t &args)
         title->pushCanvas(0, 8, UPDATE_MODE_NONE);
         tzone->pushCanvas(4, kTimeZoneY, UPDATE_MODE_NONE);
         EPDGUI_Draw(UPDATE_MODE_NONE);
-        while(!M5.TP.avaliable());
+        while(!M5.TP.available());
         M5.EPD.UpdateFull(UPDATE_MODE_GL16);
         return;
     }
@@ -128,7 +128,7 @@ void key_synctime_cb(epdgui_args_vector_t &args)
     title->pushCanvas(0, 8, UPDATE_MODE_NONE);
     tzone->pushCanvas(4, kTimeZoneY, UPDATE_MODE_NONE);
     EPDGUI_Draw(UPDATE_MODE_NONE);
-    while(!M5.TP.avaliable());
+    while(!M5.TP.available());
     M5.EPD.UpdateFull(UPDATE_MODE_GL16);
 }
 
@@ -187,7 +187,7 @@ Frame_Setting::Frame_Setting(void)
     _timezone_canvas->setTextSize(26);
     _timezone_canvas->setTextColor(15);
     _timezone_canvas->setTextDatum(CL_DATUM);
- 
+
     uint8_t language = GetLanguage();
     _key_wallpaper = new EPDGUI_Button(4, 100, 532, 61);
     _key_language = new EPDGUI_Button(4, 160, 532, 61);
@@ -203,7 +203,7 @@ Frame_Setting::Frame_Setting(void)
     }
     key_timezone_reset = new EPDGUI_Button(str, 360, kTimeZoneY, 88, 52);
     key_timezone_minus = new EPDGUI_Button("-", 272, kTimeZoneY, 88, 52);
-    
+
     key_timezone_plus->AddArgs(EPDGUI_Button::EVENT_RELEASED, 0, &_timezone);
     key_timezone_plus->AddArgs(EPDGUI_Button::EVENT_RELEASED, 1, key_timezone_reset);
     key_timezone_plus->Bind(EPDGUI_Button::EVENT_RELEASED, key_timezone_plus_cb);
